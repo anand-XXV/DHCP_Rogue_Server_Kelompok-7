@@ -17,3 +17,7 @@ Ancaman mulai terjadi ketika DHCP Rogue Server ikut mendengarkan permintaan broa
 Dampaknya sangat berbahaya bagi keamanan data. Penyerang dapat mengatur alamat komputer mereka sendiri sebagai Default Gateway, sehingga seluruh arus data internet milik korban akan dipaksa melewati komputer penyerang terlebih dahulu (Man-in-the-Middle Attack). Selain itu, penyerang juga bisa mengubah alamat DNS Server untuk mengarahkan pengguna ke situs web phishing, atau sekadar memberikan parameter IP yang salah hingga menyebabkan korban kehilangan akses internet (Denial of Service).
 
 ## Studi Kasus
+Diungkap oleh peneliti Leviathan Security pada 6 Mei 2024. Serangan ini menyalahgunakan DHCP option 121 (classless static routes) — sebuah opsi konfigurasi resmi dalam protokol DHCP yang seharusnya dipakai untuk mengatur rute jaringan, namun disalahgunakan penyerang untuk membelokkan trafik korban.
+
+Cara kerjanya penyerang menjalankan server DHCP di jaringan yang sama dengan target pengguna VPN, dan mengatur konfigurasi DHCP tersebut agar menjadikan dirinya sendiri sebagai gateway. Ketika trafik korban sampai ke gateway palsu itu, penyerang memakai aturan forwarding untuk meneruskan trafik ke gateway asli sambil menyadapnya.
+(https://www.bleepingcomputer.com/news/security/new-tunnelvision-attack-leaks-vpn-traffic-using-rogue-dhcp-servers/)
